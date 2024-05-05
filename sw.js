@@ -4,8 +4,8 @@ const staticAssets = [
     "/index.html",
     "/404.html",
     "/offline.html",
-    "audio/article 1",
-    "audio/article 2",
+    "audio/article1",
+    "audio/article2",
     "photos/Flag-of-Congo-01.svg",
     "photos/images.png"
   ];
