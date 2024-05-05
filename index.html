@@ -677,15 +677,15 @@
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
-        var db;
+       var db;
 
         // Open (or create) a database
-        var request = indexedDB.open("AudioDatabase", 1);
+        var request = indexedDB.open("AudioDatabase1", 1);
 
         // Handle database upgrades
         request.onupgradeneeded = function (event) {
             db = event.target.result;
-            var objectStore = db.createObjectStore("audio", { autoIncrement: true });
+            var objectStore = db.createObjectStore("audio1", { autoIncrement: true });
         }
 
         // Handle successful database opening
@@ -701,8 +701,8 @@
 
         // Function to add audio file to IndexedDB
         function addAudio(audioFile) {
-            var transaction = db.transaction(["audio"], "readwrite");
-            var objectStore = transaction.objectStore("audio");
+            var transaction = db.transaction(["audio1"], "readwrite");
+            var objectStore = transaction.objectStore("audio1");
 
             var addRequest = objectStore.add(audioFile);
 
@@ -717,8 +717,8 @@
 
         // Function to retrieve audio file from IndexedDB
         function getAudio(key, callback) {
-            var transaction = db.transaction(["audio"]);
-            var objectStore = transaction.objectStore("audio");
+            var transaction = db.transaction(["audio1"]);
+            var objectStore = transaction.objectStore("audio1");
             var getRequest = objectStore.get(key);
 
             getRequest.onsuccess = function (event) {
@@ -736,7 +736,7 @@
 
         // Fetch the audio file
         var xhr = new XMLHttpRequest();
-        xhr.open('GET', 'audio/article_1.mp3', true);
+        xhr.open('GET', 'audio/article1.mp3', true);
         xhr.responseType = 'blob';
 
         xhr.onload = function (event) {
